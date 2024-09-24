@@ -1,0 +1,12 @@
+os.mkdir('folder')--'bacel nor papka'
+os.chdir('folder')--'mtnel 'folder'-i mej'
+os.makedirs('one/two')--'babacel nor papka 'folderi' mej'
+import os
+os.mkdir('OS_modul')
+file=open('OS_modul_file.txt','w')
+file.write('')--'bacel file grelu hamar'
+os.rename('file.txt','folder_file.txt')--'poxel file-i anun@'
+os.replace('folder_file.txt','two/folder_file.txt')--'texapoxel file'
+print(os.listdir())--'tesnel bolor papkekn u filer@'
+os.rmdir('folder')--'jnjel folder papken'
+os.removedirs('folder/one/two')--'jnjel bolor papkek@'

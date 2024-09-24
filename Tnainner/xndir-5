@@ -1,0 +1,125 @@
+#xndir-1....bitcoinner
+import requests
+params=requests.get('https://api.coincap.io/v2/assets')
+#with open('file.json','w') as f:
+#    f.write(params.text)
+coin=params.json()
+
+for i in range(10):
+    print('name--',coin['data'][i]['id'],'  symbol--',coin['data'][i]['symbol'],'  priceUsd--',coin['data'][i]['priceUsd'],'  marketCapUsd--',coin['data'][i]['marketCapUsd'],'  changePercent24Hr--',coin['data'][i]['changePercent24Hr'])
+
+import requests
+
+
+def get_ticer(coin1="btc",coin2="usd"):
+    response=requests.get(url=f"https://yobit.net/api/3/ticker/{coin1}_{coin2}?iqnore_invalid=1")
+
+    with open('ticker.txt','w') as file:
+        file.write(response.text)
+
+    return response.text
+
+
+def get_depth(coin1='btc',coin2='usd',limit=150):
+    response=requests.get(url=f"https://yobit.net/api/3/depth/{coin1}_{coin2}?Limit={limit}iqnore_invalid=1")
+
+    with open('tepth.txt','w') as file:
+        file.write(response.text)
+
+    bids=response.json()[f'{coin1}_usd']['bids']
+
+    total_bids_amout=0
+    for item in bids:
+        price=item[0]
+        coin_amount=item[1]
+
+        total_bids_amout+=price*coin_amount
+
+    return f"total bids:   {total_bids_amout} $"
+
+
+def get_trades(coin1='btc',coin2='usd',limit=150):
+    response=requests.get(url=f"https://yobit.net/api/3/trades/{coin1}_{coin2}?Limit={limit}iqnore_invalid=1")
+
+    with open('trades.txt','w') as file:
+        file.write(response.text)
+
+
+    total_trade_ask=0
+    total_traed_bid=0
+    for item in response.json()[f"{coin1}_{coin2}"]:
+        if item["type"]=="ask":
+            total_trade_ask+=item["price"]*item["amount"]
+        else:
+            total_traed_bid+=item["price"]*item["amount"]
+    info=f"TOTAL {coin1}  SELL :   {total_trade_ask} $\n TOTAL {coin1}  buy:  {total_traed_bid} $"
+
+    return info
+
+def main():
+    #print(get_info())
+    #print(get_ticer(coin1='eth'))
+    #print(get_depth())
+    #print(get_depth(coin1="trx",limit=2000))
+    #print(get_trades(coin1="trx",limit=2000))
+    print(get_trades(''))
+
+if __name__=='__main__':
+    main()
+
+##xndir-1 bitcoini arjeq@
+
+import requests
+from pprint import pprint
+crypto=input()
+url=f'https://api.coinbase.com/v2/exchange-rates?currency={crypto}'
+response=requests.get(url)
+data=response.json()
+#pprint(data)
+print(data['data']['rates']['AMD'], ' DRAM')
+
+
+#xndir 3---xax gushakel bar@
+word='hangman'
+word=word.upper()
+mlist=['_']*len(word)
+flag_true=0
+flag_false=0
+
+while True:
+
+            let=input().upper()
+            if len(let)>1 or not let.isalpha():
+                 print('SXAL....MUTQAGREL 1 TAR')
+                 flag_false+=1
+                 continue
+      
+ 
+            if let in mlist:
+                print(mlist)
+                print(let,'TAR@ GTNVACE')
+                continue
+        
+            for i in range(len(word)):
+                if word[i]==let:
+                    mlist[i]=let
+
+            for j in range(len(word)):
+                if let not in word:
+                    flag_false+=1
+                    print('SXAL TAR')
+                    break
+                if word[j]==mlist[j]:
+                    flag_true+=word.count(let)
+                    print('CHISHT E')
+                    break
+
+            if flag_true==len(word):
+                print(word,'  DUQ HAXTECIQ')
+                
+                break
+
+            if flag_false==len(word):
+                print('DUQ PARTVECIQ')
+                break
+            print(mlist,'DUQ UNEQ GUSHAKELU',len(word)-flag_false, ' hnaravorutyun')

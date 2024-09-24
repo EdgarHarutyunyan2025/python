@@ -1,0 +1,68 @@
+#import json
+#x={'brand':'nike','phone':'samsung','number':374,'auto':'MERSEDES'}
+#def file_writ(fname,el):
+#    with open(fname,'w') as f:
+#        for k,v in el.items():
+#           f.write(str(k)+' ' + str(v)+'\n')
+           
+
+
+
+#def open_file(fname):
+#   with open(fname) as f:
+#        tmp=f.readlines()
+#        dic = {}
+#        for i in tmp:
+#            el=i.split()
+#            dic[str(el[0])]=str(el[1])
+#        return dic
+
+
+#def json_file(fname):
+#    file_dict=open_file(fname)
+#    json_str=json.dumps(file_dict,indent=2)
+#    with open('file.json','w') as j:
+#     j.write(json_str)
+
+#def main():
+#    file_writ('fila.txt',x)
+#    open_file('fila.txt')
+#    json_file('fila.txt')
+
+
+#if __name__=='__main__':
+#     main()
+
+
+
+#txt filic texapoxel json file
+#import json
+
+
+#def open_file(fname):
+#     with open(fname) as f:
+#          return f.readlines()    
+
+#def file_dic(mstr):     
+#    dic={}
+#    for i in mstr:
+#        el=i.split()
+#        dic[el[0]]=el[1]
+#    dic['key']='gooood'
+#    return dic
+
+
+
+#def json_file(fname,el):
+#    with open(fname,'w') as f:
+#        json_str=json.dumps(el,indent=2)
+#        f.write(json_str) 
+
+  
+#def main():
+#    x=open_file('fila.txt')
+#    y=file_dic(x)
+#    json_file('file.json',y)
+
+#if __name__=='__main__':
+#    main()

@@ -1,0 +1,23 @@
+import argparse
+
+# Create ArgumentParser object
+parser = argparse.ArgumentParser(description='Description of your program')
+
+# Add positional arguments
+parser.add_argument('a', type=int, help='Description of argument a')
+parser.add_argument('b', type=int, help='Description of argument b')
+
+# Add optional argument
+parser.add_argument('-a', '--action', help='Description of the action')
+
+# Parse the arguments
+args = parser.parse_args()
+
+# Access the values
+a = args.a
+b = args.b
+action = args.action
+
+# Now you can use the values as needed in your program
+
+ 

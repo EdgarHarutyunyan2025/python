@@ -1,0 +1,58 @@
+#tnain--X-O XAX
+
+#bord_size=3
+#bord=[1,2,3,4,5,6,7,8,9]
+
+#def draw_board():
+#    print('_'*4*bord_size)
+#    for i in range(bord_size):
+#        print((' '*3+'|')*3)
+#        print('',bord[i*3],'|',bord[1+i*3],'|',bord[2+i*3],'|')
+#        print(('_'*3+'|')*3)
+
+
+#def game_step(index,char):
+#    if (index>10 or index<1 or bord[index-1] in ('X','O')):
+#        return False
+#    bord[index-1]=char
+#    return True
+
+#def check_win():
+#    win= False
+#    win_combination=((0,1,2),(3,4,5),(6,7,8),(0,3,6),(1,4,7),(2,5,8),(0,4,8),(2,4,6))
+
+#    for i in win_combination:
+#        if bord[i[0]]==bord[i[1]]==bord[i[2]]:
+#            win=bord[i[0]]
+
+#    return win
+ 
+
+#def star_game():
+#    cuurent_player='X'
+#    step=1
+#    draw_board()
+
+#    while (step<10) and check_win()==False:
+#        index=input('QAYL@ '+cuurent_player+' GREL DASHTI TIV@  '+' 0-XAXI DADAR')
+
+#        if (index=='0'):
+#            break
+
+#        if game_step(int(index),cuurent_player):
+#            print('hajox qayl')
+#            if cuurent_player=='X':
+#                cuurent_player='O'
+#            else:
+#                cuurent_player='X'
+#            draw_board()
+#            step+=1
+#        else:
+#            print('porcel krkin')
+#    if step==10:
+#        print('vochcoqi')
+#    else:
+#        print('krec',check_win())
+                      
+#print('bari galust X-O')
+#star_game()

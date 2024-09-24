@@ -1,0 +1,82 @@
+import re
+
+def read_file(fname):
+    with open(fname) as f:
+        mlist=re.findall(r'[0-9a-z-A-Z]+',f.read())
+        mdic={}
+        for i in mlist:
+            mdic[i]=mlist.count(i)
+    return mdic
+
+
+def sort_dict(mdict):
+    dict_sort={}
+    for i in sorted(mdict.items(),key=lambda x:(x[0])):
+        dict_sort[i[0]]=i[1]
+    return dict_sort
+   
+def binary_search(dict_list,word_list):
+    try:
+        low=0
+        high=len(dict_list)-1
+        index=0
+        word=word_list
+        flag=0
+        while low<=high:
+            flag+=1
+            mid=((low+high)//2)
+            guess=dict_list[mid]
+            if guess[0]==word:
+                return guess
+            
+            if len(guess[0])<=index:
+                if guess[0][index-1]<word[index]:
+                    high=mid+1
+                    continue
+
+                if guess[0][index-1]>word[index]:
+                    low=low-1
+                    continue
+                    
+
+            if ord(guess[0][0])>ord(word[0]) :
+                high=mid+1
+
+            if ord(guess[0][0])<ord(word[0]) :
+                low=mid-1
+
+            if ord(guess[0][index])>ord(word[index]) and guess[0][0]==word[0]:
+                high=mid+1
+
+            if ord(guess[0][index])<ord(word[index]) and guess[0][0]==word[0]:
+                low=mid-1
+
+            if word in guess[0] and word!=guess[0]:
+                high=mid+1
+
+            if guess[0] in word and guess[0]!=word:
+                low=mid-1
+
+            if guess[0][:(index+1)]==word[:(index+1)] and guess[0]!=word:
+                index+=1
+            if flag==15:
+                break
+    except Exception as type_error:
+        print(type_error) 
+        
+
+
+     
+
+def main():    
+    mfile=read_file('test.txt')
+    mdict=sort_dict(mfile)
+    return list(mdict.items())
+
+word=input()
+dict_list=main()
+word_count=binary_search(dict_list,word)
+print(word_count)
+
+if __name__=='__main__':
+    main()

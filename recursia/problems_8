@@ -1,0 +1,143 @@
+
+#xndir 4.1
+def sum_list(lis):
+    if len(lis)==1:
+        return lis[0]
+    return lis[0]+sum_list(lis[1:])
+
+mlis=[1,5,87,7,2,9]
+sum=sum_list(mlis)
+print(sum)
+
+#xndir 4.2
+def count_list(lis):
+    if len(lis)==0:
+        return 0
+    return 1+count_list(lis[1:])
+
+mlis=[1,5,87,7,2,9]
+count=count_list(mlis)
+print(count)
+
+
+#xndir 4.3
+def fn(lis,num):
+    if len(lis)==0:
+        return num
+    if lis[0]>num:
+        num=lis[0]
+    return 1+fn(lis[1:],num)
+
+
+mnum=0
+mlis=[1,5,87,7,2,9]
+max_num=fn(mlis,mnum)-len(mlis)
+print(max_num)
+
+#xndir 4.4
+def binary_search(lis,num):
+
+    num_index = len(lis)//2
+
+    if lis[num_index]==num:
+        return num
+    if lis[num_index]<num: 
+        return binary_search(lis[num_index:],num)
+    if lis[num_index]>num: 
+        return binary_search(lis[:num_index],num)
+    
+
+number=7
+mlis=[1,2,3,4,5,6,7]
+sum=binary_search(mlis,number)
+print(sum)
+
+#xndir 4.4
+
+def binary_search(lis,num):
+
+    num_index = (len(lis))//2
+    if len(lis)<1:
+        return 0
+
+    if lis[num_index]==num:
+        return num_index
+    if lis[num_index]<num: 
+        return (num_index+(binary_search(lis[num_index:],num)))
+    if lis[num_index]>num: 
+        return ((binary_search(lis[:num_index],num)))
+    
+
+number=97
+mlis=[12,27,34,48,59,61,72,87,97,100]
+num_index=binary_search(mlis,number)
+print(num_index)
+
+#xndir 5
+
+
+def sort_list(lis):
+    if len(lis)<2:
+        return lis
+    else:
+        pivot=lis[0]
+        less=[i for i in lis[1:] if i<=pivot]
+        greater=[i for i in lis[1:] if i>pivot]
+    return sort_list(less)+[pivot]+sort_list(greater)
+
+    
+
+mlis=[6,5,8,1,9,7,3,12]
+new_list=sort_list(mlis)
+print(new_list)
+
+
+#xndir 4-6
+def count_list(lis):
+    if len(lis)==0:
+        return lis
+    return [(lis[0]*2)]+count_list(lis[1:])
+
+mlis=[1,5,87,7,2,9]
+count=count_list(mlis)
+print(count)
+
+#xndir 4.7
+
+def count_list(lis):
+    if len(lis)<2:
+        return [lis[0]*2]
+    return [lis[-1]]+count_list(lis[:-1])
+
+mlis=[1,5,87,7,2,9]
+count=count_list(mlis)
+count.reverse()
+print(count)
+
+#xndir 4.8
+
+def sort_list(lis):
+    if len(lis)<1:
+        return lis
+
+    return [lis[0]*lis[i] for i in range(len(lis)) ]+sort_list(lis[1:])
+
+
+mlis=[6,5,12,11,3]
+new_list=sort_list(mlis)
+print(new_list)
+
+#xndir 4.8
+
+
+def sort_list(lis,lis2):
+    if len(lis2)<1:
+        return []
+
+    return [lis[i]*lis2[0] for i in range(len(lis)) ]+sort_list(lis,lis2[1:])
+
+
+mlis=[2,4,6,8]
+mlis2=mlis
+new_list=sort_list(mlis,mlis2)
+print(new_list)

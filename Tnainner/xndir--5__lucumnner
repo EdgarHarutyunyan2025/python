@@ -1,0 +1,249 @@
+#xndir-1 bitcoini arjeq@
+
+import requests
+params=requests.get('https://api.coincap.io/v2/assets')
+#with open('file.json','w') as f:
+#    f.write(params.text)
+coin=params.json()
+
+for i in range(10):
+    print('name--',coin['data'][i]['id'])
+    print('  symbol--',coin['data'][i]['symbol'])
+    print('  priceUsd--',coin['data'][i]['priceUsd'],'$')
+    print('  marketCapUsd--',coin['data'][i]['marketCapUsd'],'$')
+    print('  changePercent24Hr--',coin['data'][i]['changePercent24Hr'])
+
+
+#dolari kurs@
+
+import requests
+
+def convert_currency(qanak,gumar,arjeq):
+    try:
+        response=requests.get(f'https://v6.exchangerate-api.com/v6/217936093d74ee1fb37fa8f7/latest/{gumar}',params={'APPID':'217936093d74ee1fb37fa8f7'})
+    except Exception as e:
+        print(type(e))
+
+    if response.status_code==200:
+        try:
+            data=response.json()
+            valut=data['conversion_rates'][f'{arjeq}']
+            return (valut*float(f'{qanak}'))
+        except:
+            print('value error')
+    else:
+        print('error',response.status_code)
+
+def main():
+    qanak=float(input("Enter the amount to convert: "))
+    gumar=input("Enter the source currency (e.g., USD): ").upper()
+    arjeq=input("Enter the target currency (e.g., EUR): ").upper()
+
+    converted_amount = convert_currency(qanak,gumar,arjeq)
+    if converted_amount is not None:
+        print("\nConverted amount:")
+        print(f"{qanak} {gumar} is equivalent to {converted_amount:.2f} {arjeq}")
+
+
+if __name__=='__main__':
+    main()
+
+
+#xndir-2   nshel qaxaq@ tesnel exanakain paymanner@
+
+import requests
+
+def weather_forecast(city):
+
+    api_key='2ad207f1576cc623c5396f3df877c5d7'
+    response=requests.get('https://api.openweathermap.org/data/2.5/weather',params={'q':city,'units':'metric','APPID':api_key})
+
+
+    if response.status_code ==200:
+        data=response.json()
+        try:
+            print('City',data['name'])
+            for i in data['main']:
+                print('  ',i,'-->',data['main'][i])
+        except Exception as error_name:
+            print(error_name)
+
+
+    else:
+        print('status_code--',response.status_code)
+
+
+def main():
+    city_name=input('Enter sity_name...').upper()
+    weather_forecast(city_name)
+
+if __name__=='__main__':
+    main()
+
+
+
+#xndir--3  xax gushakel bar@
+
+word='hangman'
+word=word.upper()
+mlist=['_']*len(word)
+flag_true=0
+flag_false=0
+cou=3
+while True:
+
+            let=input().upper()
+            if len(let)>1 or not let.isalpha():
+                flag_false+=1
+                if flag_false==cou:
+                    print('DUQ PARTVECIQ')
+                    break
+                else:
+                    print('SXAL....MUTQAGREL 1 TAR')
+                    print(mlist,'DUQ UNEQ GUSHAKELU',cou-flag_false, ' hnaravorutyun')
+                    continue
+      
+ 
+            if let in mlist:
+                print(mlist)
+                print(let,'TAR@ GTNVACE')
+                continue
+        
+            for i in range(len(word)):
+                if word[i]==let:
+                    mlist[i]=let
+
+            for j in range(len(word)):
+                if let not in word:
+                    flag_false+=1
+                    print('SXAL TAR')
+                    break
+                if word[j]==mlist[j]:
+                    flag_true+=word.count(let)
+                    print('CHISHT E')
+                    break
+
+            if flag_true==len(word):
+                print(word,'  DUQ HAXTECIQ')
+                
+                break
+
+            if flag_false==cou:
+                print('DUQ PARTVECIQ')
+                break
+            print(mlist,'DUQ UNEQ GUSHAKELU',cou-flag_false, ' hnaravorutyun')
+
+#xndir--4  dasavorel filer@ @st tesakneri
+
+import os
+import re
+
+file_name=input()
+folder=os.walk(file_name)
+
+def open_folder(fname):
+    tuple_list=[]
+    for el in fname:
+        tuple_list.append(el)
+        mlist=el
+        if type(el)==tuple:
+            return tuple_list[0]
+    return mlist
+
+
+
+def sort_file(fname):
+    for el in fname:
+        e=re.findall(r'[^.]+',el)
+        os.chdir(file_name)
+        if not os.path.isdir(e[-1]+'_filer'):
+            os.makedirs(e[-1]+'_filer')
+        os.replace(el,e[-1]+'_filer/'+el)
+        os.chdir('..')
+
+
+
+
+def main():
+    fnam=open_folder(folder)
+    print(fnam)
+    fnam1=open_folder(fnam)
+    print('2',fnam1)
+    sort_file(fnam1)
+
+if __name__=='__main__':
+    main()
+    
+
+#xndir--4  dasavorel filer@ @st tesakneri
+    
+import os
+import re
+import shutil
+try:
+    folder_name=input()
+    folder=os.walk(folder_name)
+    def open_folder(fname):
+        m=[]
+        for i in fname:
+            mlist=i
+            m.append(i)
+            if type(i)==tuple:
+                return m[0]
+        return mlist
+
+    def count_file(lis):
+        for i in lis:
+            folder_cwd=os.getcwd()
+            el=re.findall(r'[^.]+',i)
+            type_file=el[-1]
+            os.chdir(folder_name)
+            if not os.path.isdir(type_file+'_filer'):
+                os.makedirs(type_file+'_filer')
+            shutil.move(i,type_file+'_filer')
+            os.chdir(folder_cwd)
+        
+    mlist=open_folder(folder)
+    file_list=open_folder(mlist)
+    count_file(file_list)
+
+except Exception as type_error:
+    print(type_error)
+
+#xndir-5 gtnel txt-i amenashat ogtagorcvac barer@
+
+import re
+
+def read_file(fname):
+    with open(fname) as f:
+        mlist=re.findall(r'[0-9za-A-Z]+',f.read())
+        mdic={}
+        for i in mlist:
+            mdic[i]=mlist.count(i)
+    return mdic
+
+
+def sort_dict(mdict):
+    dict_sort={}
+    for i in sorted(mdict.items(),key=lambda x:x[1],reverse=True):
+        dict_sort[i[0]]=i[1]
+    return dict_sort
+   
+
+def cound_word(mdict,cou):
+    flag=0
+    for k,v in mdict.items():
+        flag+=1
+        if flag==cou:
+            break
+        print(k,v)
+
+
+def main():    
+    mfile=read_file('fila.txt')
+    mdict=sort_dict(mfile)
+    cound_word(mdict,20)
+
+
+if __name__=='__main__':
+    main()

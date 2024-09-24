@@ -1,0 +1,19 @@
+#xndi-1
+
+def recursia_fn(lis):
+    if len(lis)<1:
+        return 0
+    return lis[0] + recursia_fn(lis[1:])
+
+mlist=[1,5,4,8]
+print(recursia_fn(mlist))
+
+#xndir-2
+
+def recursia_fn(lis):
+    if len(lis)<1:
+        return 0
+    return 1 + recursia_fn(lis[1:])
+
+mlist=[1,5,4]
+print(recursia_fn(mlist))

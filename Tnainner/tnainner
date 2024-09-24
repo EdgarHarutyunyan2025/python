@@ -1,0 +1,141 @@
+#tnain--stexcel textain file grel mardkanc anunner@ uv tariq@ dasavorvac @st tariqi
+
+#def dict_sort(el):
+#   sort_list=[]
+#   for k in sorted(el.items(),key=lambda el: el[1]):
+#       print(k)
+#       sort_list.append(k)
+#
+#   return sort_list
+
+
+#def sort_file(lis):
+#   with open('fila.txt','w') as f:
+#      for i,j in lis:
+#        f.write(i+' '+str(j)+'\n')
+
+
+#x={'Jim':22,'Bob':37,'an':19,'tom':48,'pogos':57}
+#list_sort=dict_sort(x)
+#sort_file(list_sort)
+
+
+#tnain--gtnel naxadasutyan mej exac tarer@ tver@ ev simvolner@ tpel xlsx fili mej
+#x='heelo good world aoieu137954682.,[!@#$%]'
+
+#def sort_str(st):
+#    dic={}
+#    for i in st:
+#        if i == ' ':
+#             continue
+#        if i.isalpha():
+#              dic[i]=st.count(i)
+#       elif i.isdigit():
+#           dic[i]=st.count(i)
+#       else:
+#            dic[i]=st.count(i)
+#
+#    return   sorted(dic.items(),key=lambda x: x[0])
+
+
+#import xlsxwriter
+
+#def xlsx_book(lis):
+#    workbook = xlsxwriter.Workbook('xlsxfile01.xlsx')
+#    worksheet = workbook.add_worksheet()
+
+
+#    expenses = lis
+#    worksheet.write(0, 0,'tarer')
+#    worksheet.write(0, 1, 'tver'    )
+#    worksheet.write(0, 2,  'simvolner'   )
+#    row = 1
+#    ro=1
+#    r=1
+#    n=8
+#    col = 0
+#    vowels='aouie'
+#    for item, cost in (expenses):
+#        if item.isalpha(): 
+#            if item in vowels:
+#                worksheet.write(1, col,  'vowels')
+#                r+=1
+#                worksheet.write(r, col,     item+' = '+ str(cost))
+#           if not item in vowels:
+#                worksheet.write(8, col,     'consonants')
+#                n+=1
+#                worksheet.write(n, col,     item+' = '+ str(cost))
+#        if item.isdigit():
+#            worksheet.write( ro,col+1,    item+' = '+ str(cost))
+#            ro += 1    
+#        if not item.isalpha() and not item.isdigit():
+#           worksheet.write(row, col+2,     item+' = '+ str(cost))
+#            row+=1
+#    workbook.close()
+#    return workbook
+
+#x='good'
+#tmp=sort_str(x)
+#xlsx_book(tmp)
+
+
+#argpars
+#tnain--argpasi mijocov grel kod vor@ n-i depqum kveradarcni fili miji mardkanc anunner@ s-i depqum azganunner@
+
+#import  argparse
+#parser= argparse.ArgumentParser()
+
+
+#def get_content(fname):
+#	with open(fname) as f:
+#		return f.readlines()
+
+
+#def args_list(x,b):
+#    list_name=[]
+#    list_surname=[]
+#    for i in x:
+#        m=i.split()
+#        list_name.append(m[0])
+#        list_surname.append(m[1])
+#    if b=='n':
+#         return list_name
+#    if b=='s' :
+#         return list_surname  
+ 
+
+#parser.add_argument('-a') 
+#args=parser.parse_args()	
+
+
+#fname = "fila.txt"
+#a=get_content(fname)
+
+
+#if args.a=='n':
+#    print(args_list(a,'n'))
+#if args.a=='s':
+#    print(args_list(a,'s'))
+
+
+
+#xax gtnel tiv@....cow-bull
+
+#num='1597'
+#while True:
+#    x=input()
+#    cow=0
+#    bull=0    
+#    try:
+#        for i in range(len(x)):
+#            if x[i]==num[i]:
+#                cow+=1
+#            if x[i]!=num[i] and x[i] in num:
+#                bull+=1
+#        if x==num:
+#            print('win')
+#            break
+#    except Exception:
+#        print('mutqagrel 4 tiv')
+#    else:
+#        print('COW',cow,'BULL',bull)

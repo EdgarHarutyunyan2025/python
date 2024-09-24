@@ -1,0 +1,74 @@
+#json xndir-1,2
+
+#import json
+#mdict={"brand": "nike", "phone": "nokia",'bool':True}
+#print(type(mdict))
+#json_str=json.dumps(mdict)
+#print(type(json_str))
+#new_dict=json.loads(json_str)
+#print(type(new_dict))
+
+#json xndir 3
+
+#import json
+
+#mdict =  {'brand ':'nike ','phone ':'samsung' ,'number': 374 ,'auto ':'MERSEDES'}
+#mlist =  ["Red", "Green", "Black"]
+#mstr =  "hello workd"
+#mint =  374
+#mfloat =  5.1
+#mbool1 =  True
+#mbool2 =  False
+
+#json_dict = json.dumps(mdict)
+#print(json_dict)
+#json_list = json.dumps(mlist)
+#print(json_list)
+#json_str = json.dumps(mstr)
+#print(json_str)
+#json_int = json.dumps(mint)
+#print(json_int)
+#json_float = json.dumps(mfloat)
+#print(json_float)
+#json_bool1 = json.dumps(mbool1)
+#print(json_bool1)
+#json_bool2 = json.dumps(mbool2)
+#print(json_bool2)
+
+#json xndir 4
+
+#import json
+#mdict={'brand': 'nike','phone': 'samsung','num':'374'}
+#json_str=json.dumps(mdict,sort_keys=True,indent=4)
+#print(json_str)
+
+
+#xndir 5
+
+#import json
+#json_dict='{"brand":"nike","phone":"samsung" ,"number": 374 ,"auto":"MERSEDES"}'
+#json_list='["hello","good","world"]'
+#json_string = '"json string"'
+#json_int = '1234'
+#json_float =  '21.34'
+
+#mdict=json.loads(json_dict)
+#print(type(mdict))
+#mlist=json.loads(json_list)
+#print(type(mlist))
+#mstr=json.loads(json_string)
+#print(type(mstr))
+#mint=json.loads(json_int)
+#print(type(mint))
+#mfloat=json.loads(json_float)
+#print(type(mfloat))
+
+
+#xndir 6
+
+#import json
+#with open('file.json') as f:
+#    json_str=json.load(f)
+
+#with open('new_file.json','w')as f:
+#    json.dump(json_str,f,indent=4)
